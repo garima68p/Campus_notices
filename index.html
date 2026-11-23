@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Notice and Circular Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Campus Connect</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#notices">Notices</a>
+            <a href="#about">About</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Campus Notice and Circular Management System</h1>
+        <p>Stay updated with the latest campus announcements and circulars.</p>
+    </section>
+
+    <main class="container">
+        <section class="stats">
+            <div class="stat-card">
+                <h2 id="totalNotices">8</h2>
+                <p>Total Notices</p>
+            </div>
+            <div class="stat-card">
+                <h2 id="urgentNotices">2</h2>
+                <p>Urgent Notices</p>
+            </div>
+            <div class="stat-card">
+                <h2>5</h2>
+                <p>Categories</p>
+            </div>
+        </section>
+
+        <section class="urgent-banner">
+            <span class="urgent-label">URGENT NOTICE</span>
+            <h3>Important Examination Form Submission</h3>
+            <p>
+                Students must submit their examination forms before
+                the last date. Please check the examination notice.
+            </p>
+            <button onclick="showNotice(1)">View Details</button>
+        </section>
+
+        <section class="notice-section" id="notices">
+
+            <h2>Campus Notices & Circulars</h2>
+            <div class="search-box">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search by keyword or circular number..."
+                    onkeyup="searchNotices()"
+                >
+            </div>
+
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterNotices('All', this)">All</button>
+                <button class="filter-btn" onclick="filterNotices('Department', this)">Department</button>
+                <button class="filter-btn" onclick="filterNotices('Exams', this)">Exams</button>
+                <button class="filter-btn" onclick="filterNotices('Fees', this)">Fees</button>
+                <button class="filter-btn" onclick="filterNotices('Events', this)">Events</button>
+                <button class="filter-btn" onclick="filterNotices('Placement', this)">Placement</button>
+            </div>
+
+            <div class="notice-container" id="noticeContainer">
+            </div>
+
+            <p id="noResults" class="no-results">
+                No notices found!
+            </p>
+
+        </section>
+
+        <section class="about" id="about">
+            <h2>About This System</h2>
+            <p>
+                The Campus Notice and Circular Management System provides
+                students and faculty with a centralized platform to access
+                important college announcements, examination schedules,
+                fee updates, events and placement notifications.
+            </p>
+        </section>
+
+    </main>
+
+    <div class="modal" id="noticeModal">
+        <div class="modal-content">
+
+            <span class="close" onclick="closeModal()">&times;</span>
+
+            <span id="modalCategory" class="category-tag"></span>
+            <span id="modalUrgent" class="urgent-tag">URGENT</span>
+
+            <h2 id="modalTitle"></h2>
+
+            <p id="modalNumber"></p>
+            <p id="modalDate"></p>
+
+            <hr>
+
+            <h3>Notice Details</h3>
+            <p id="modalDescription"></p>
+
+            <h3>Supporting Documents</h3>
+            <div id="modalDocuments"></div>
+
+            <button class="close-btn" onclick="closeModal()">
+                Close
+            </button>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Campus Notice and Circular Management System</p>
+        <p>Designed for Students and Faculty</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
